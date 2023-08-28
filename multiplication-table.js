@@ -1,17 +1,28 @@
 function generateExpression(multiplicand, multiplier) {
-   return "";
+   return `${multiplicand}*${multiplier}=${multiplicand * multiplier}\t`;
 }
 
 function generateLine(lineStart, lineEnd) {
-    return "";
+    let line = "";
+    for(let multiplicand = lineStart; multiplicand <= lineEnd; multiplicand++) {
+       line += generateExpression(multiplicand, lineEnd);
+    }
+    return line.trimEnd();
 }
 
 function generateAllLines(start, end) {
-    return "";
+    let table = "";
+
+    for(let multiplier = start; multiplier <= end; multiplier++) {
+        table += generateLine(start, multiplier);
+        table += "\n";
+     }
+    
+    return table.trim();
 }
 
 function isValid(start, end) {
-   false;
+   return start <= end && start >= 1 && end <= 1000;
 }
 
 export default {
